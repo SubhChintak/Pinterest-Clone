@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+  </head>
+  <body>
+    <div class="containerpers">
+        <div class="cardpers">
+          <div class="profile-picture">
+            <img src="https://i.pinimg.com/564x/33/a9/21/33a921f55cf2668c936521032bc27086.jpg" alt="Profile Picture">
+          </div>
+          <h2 class="name"> <%= user.fullname %> </h2>
+          <h3 class="username"> @ <%= user.username %> </h3>
+          <p class="tagline">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, sapiente!</p>
+          <a href="/logout" class="button">Account Logout</a>
+
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="text" name="filecaption" placeholder="write caption">
+            <input type="file" name="file" >
+            <input type="submit">Upload </form>
+          </form>
+        </div>
+    </div>
+
+
+    <div class="container">
+    <div class="cards flex">
+
+        <% user.posts.forEach(function(post){ %>
+
+            <div class="card" style="width: 18rem;">
+                <img src="/images/uploads/<%= post.image %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= post.imageText %></h5>
+                </div>
+              </div>
+
+        <% }) %>
+
+
+
+        </div>
+
+
+
+    <!-- <div class="card" style="width: 18rem;">
+        <img src="https://i.pinimg.com/564x/db/dd/bf/dbddbf6a941cf9c057f3b29dbebb32e7.jpg" class="card-img-top" alt="picture1">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+        </div>
+      </div>
+
+
+    
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.pinimg.com/564x/28/5f/28/285f28b590d8694200c6405caa9f20cd.jpg" class="card-img-top" alt="picture2">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="https://i.pinimg.com/236x/cf/5d/27/cf5d271791d8dae895d25a975c46f610.jpg" class="card-img-top" alt="picture4">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+        </div>
+      </div>
+
+     
+
+    
+
+</div> -->
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
